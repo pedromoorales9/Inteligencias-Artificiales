@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guía completa sobre las Inteligencias Artificiales más relevantes en 2024">
     <title>Guía Completa de IAs - Pedro Miguel Morales Calderin</title>
     <style>
         :root {
@@ -124,7 +123,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.4em;
-            animation: fadeIn 1s ease-out;
         }
 
         .hero p {
@@ -135,14 +133,12 @@
             color: var(--secondary-color);
             max-width: 600px;
             margin: 0 auto;
-            animation: slideUp 1s ease-out;
         }
 
         .author-info {
             margin-top: 1.6em;
             font-size: 17px;
             color: var(--secondary-color);
-            animation: fadeIn 1.5s ease-out;
         }
 
         .intro-section {
@@ -162,10 +158,22 @@
         .cards-container {
             max-width: 980px;
             margin: 4rem auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            padding: 0 20px 20px;
+            display: flex;
             gap: 2rem;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--background-light);
+        }
+
+        .cards-container::-webkit-scrollbar {
+            height: 8px;
+            background: var(--background-light);
+        }
+
+        .cards-container::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
         }
 
         .card {
@@ -174,20 +182,8 @@
             padding: 30px;
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--accent-color);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            min-width: 300px;
+            flex-shrink: 0;
         }
 
         .card:hover {
@@ -195,16 +191,9 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-
         .card h3 {
             font-size: 24px;
-            line-height: 1.16667;
-            font-weight: 600;
-            letter-spacing: .009em;
-            margin-bottom: 0.8em;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -217,12 +206,10 @@
         }
 
         .card p {
+            min-height: 60px;
             font-size: 17px;
-            line-height: 1.47059;
-            font-weight: 400;
-            letter-spacing: -0.022em;
             color: var(--secondary-color);
-            margin-bottom: 1.2em;
+            margin-bottom: 15px;
         }
 
         .card-list {
@@ -230,13 +217,10 @@
         }
 
         .card-list li {
-            margin-bottom: 0.8em;
+            margin-bottom: 8px;
             list-style: none;
             color: var(--secondary-color);
             font-size: 14px;
-            line-height: 1.42859;
-            font-weight: 400;
-            letter-spacing: -0.016em;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -277,9 +261,6 @@
             border-radius: 980px;
             text-decoration: none;
             font-size: 12px;
-            line-height: 1.33337;
-            font-weight: 400;
-            letter-spacing: -0.01em;
             transition: all 0.3s ease;
         }
 
@@ -288,20 +269,10 @@
             transform: scale(1.02);
         }
 
-        .button svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
-
         .section-title {
             text-align: center;
             font-size: 48px;
-            line-height: 1.08349;
-            font-weight: 600;
-            letter-spacing: -.003em;
             margin: 80px 0 40px;
-            color: var(--primary-color);
             position: relative;
         }
 
@@ -315,89 +286,21 @@
             border-radius: 2px;
         }
 
-        .comparison-table {
-            max-width: 900px;
-            margin: 40px auto;
+        .levels-container {
+            max-width: 980px;
+            margin: 2rem auto;
             padding: 0 20px;
-            overflow-x: auto;
-        }
-
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 12px 20px;
-            text-align: left;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .comparison-table th {
-            background-color: var(--accent-color);
-            color: white;
-            font-weight: 500;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .footer {
-            background-color: #f5f5f7;
-            padding: 40px 20px;
-            margin-top: 80px;
-            text-align: center;
-            font-size: 12px;
-            line-height: 1.33337;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            color: var(--secondary-color);
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .footer p + p {
-            margin-top: 0.8em;
-        }
-
-        .resources-section {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
         }
 
-        .resource-card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .resource-card h4 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        /* Nuevos estilos para niveles */
         .level-card {
-            background: white;
+            background: var(--card-background);
             border-radius: 18px;
             padding: 30px;
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
         }
 
         .level-card:hover {
@@ -423,28 +326,15 @@
             background-color: var(--advanced-color);
         }
 
-        .level-card h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
         .level-card-content {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
 
-        .level-steps {
+        .level-steps, .level-tips {
             flex: 1;
             min-width: 300px;
-        }
-
-        .level-tips {
-            flex: 1;
-            min-width: 300px;
-            background-color: rgba(6, 204, 255, 0.05);
-            padding: 20px;
-            border-radius: 12px;
         }
 
         .step-item {
@@ -473,33 +363,15 @@
         .step-item:nth-child(1):before { content: '1'; }
         .step-item:nth-child(2):before { content: '2'; }
         .step-item:nth-child(3):before { content: '3'; }
-        .step-item:nth-child(4):before { content: '4'; }
-        .step-item:nth-child(5):before { content: '5'; }
 
-        .tip-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--accent-color);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer {
+            background-color: #f5f5f7;
+            padding: 40px 20px;
+            margin-top: 80px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--secondary-color);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         @media (max-width: 734px) {
@@ -509,30 +381,30 @@
 
             .hero h1 {
                 font-size: 40px;
-                line-height: 1.1;
             }
-            
+
             .hero p {
                 font-size: 21px;
-                line-height: 1.19048;
             }
 
             .section-title {
                 font-size: 32px;
-                line-height: 1.125;
             }
 
             .cards-container {
+                gap: 1.5rem;
+                padding: 0 15px 15px;
+            }
+
+            .card {
+                min-width: 280px;
+                padding: 25px;
+            }
+
+            .levels-container {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
-            }
-
-            .nav-content {
-                justify-content: center;
-            }
-
-            .level-card-content {
-                flex-direction: column;
+                padding: 0 15px;
             }
         }
     </style>
@@ -543,7 +415,7 @@
             <div class="nav-links">
                 <a href="#inicio">Inicio</a>
                 <a href="#introduccion">Introducción</a>
-                <a href="#niveles">Niveles de Uso</a>
+                <a href="#niveles">Niveles</a>
                 <a href="#ias">IAs</a>
                 <a href="#comparativa">Comparativa</a>
                 <a href="#recursos">Recursos</a>
@@ -563,189 +435,224 @@
 
     <section class="intro-section" id="introduccion">
         <p>La Inteligencia Artificial está transformando la manera en que trabajamos, creamos y nos comunicamos. Esta guía te ayudará a entender las principales herramientas de IA disponibles actualmente y cómo puedes aprovecharlas en tu día a día.</p>
-        <p>Desde asistentes conversacionales hasta generadores de imágenes, descubre las capacidades y limitaciones de cada herramienta según tu nivel de experiencia.</p>
     </section>
 
-    <h2 class="section-title" id="niveles">Niveles de Uso de IA</h2>
-    
-    <div class="resources-section">
-        <!-- Nivel Intermedio -->
+    <h2 class="section-title" id="niveles">Niveles de Uso</h2>
+    <div class="levels-container">
         <div class="level-card">
-            <span class="level-badge level-intermediate">Nivel Intermedio</span>
-            <h3>Optimizando tus prompts</h3>
-            
+            <span class="level-badge level-intermediate">Intermedio</span>
+            <h3>Técnicas Esenciales</h3>
             <div class="level-card-content">
                 <div class="level-steps">
                     <div class="step-item">
-                        <h4>Estructura tus preguntas</h4>
-                        <p>Utiliza un formato claro: contexto + instrucción + objetivo específico. Por ejemplo: "Contexto: Soy un programador principiante. Instrucción: Explícame paso a paso cómo crear una API REST. Objetivo: Quiero entender los conceptos básicos para implementarla en Python."</p>
+                        <h4>Estructuración de Prompts</h4>
+                        <p>Contexto + Instrucción + Objetivo específico</p>
                     </div>
                     <div class="step-item">
-                        <h4>Sé específico con detalles</h4>
-                        <p>Añade parámetros como longitud, tono, formato y audiencia. Por ejemplo: "Escribe un email de 150 palabras en tono profesional para un cliente importante, explicando un retraso en la entrega."</p>
+                        <h4>Especificación de Parámetros</h4>
+                        <p>Longitud, tono, formato y audiencia</p>
                     </div>
                     <div class="step-item">
-                        <h4>Solicita iteraciones</h4>
-                        <p>Pide a la IA que refine sus respuestas. Por ejemplo: "Analiza este código, luego optimízalo para rendimiento, y finalmente explica los cambios que has hecho."</p>
+                        <h4>Iteraciones Guiadas</h4>
+                        <p>Refinamiento progresivo de respuestas</p>
                     </div>
                 </div>
-                
                 <div class="level-tips">
-                    <h4>Consejos clave:</h4>
-                    <div class="tip-item">
-                        <p class="tip-title">Usa términos de rol</p>
-                        <p>Pide a la IA que adopte un rol específico: "Actúa como un experto en SEO y analiza esta página web..."</p>
-                    </div>
-                    <div class="tip-item">
-                        <p class="tip-title">Evita ambigüedades</p>
-                        <p>En lugar de preguntar "¿Qué opinas de JavaScript?", pregunta "¿Cuáles son las ventajas y desventajas de JavaScript para desarrollo web en 2024?"</p>
-                    </div>
-                    <div class="tip-item">
-                        <p class="tip-title">Limita el contexto</p>
-                        <p>Proporciona solo la información relevante para obtener respuestas más precisas y evitar confusiones.</p>
+                    <h4>Consejos Clave</h4>
+                    <div class="step-item">
+                        <p><strong>Roles Específicos:</strong> "Actúa como experto en..."</p>
+                        <p><strong>Evitar Ambigüedades:</strong> Preguntas concretas</p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Nivel Avanzado -->
+
         <div class="level-card">
-            <span class="level-badge level-advanced">Nivel Avanzado</span>
-            <h3>Ingeniería de prompts para resultados profesionales</h3>
-            
+            <span class="level-badge level-advanced">Avanzado</span>
+            <h3>Técnicas Profesionales</h3>
             <div class="level-card-content">
                 <div class="level-steps">
                     <div class="step-item">
-                        <h4>Técnica de pensamiento paso a paso</h4>
-                        <p>Pide a la IA: "Piénsalo paso a paso" o "Analiza este problema descomponiéndolo en partes más pequeñas". Funciona especialmente bien para problemas complejos de matemáticas, lógica o programación.</p>
+                        <h4>Encadenamiento de Prompts</h4>
+                        <p>Flujos secuenciales con retroalimentación</p>
                     </div>
                     <div class="step-item">
-                        <h4>Encadenamiento de prompts</h4>
-                        <p>Divide tareas complejas en una serie de prompts secuenciales, usando la salida de cada uno como entrada para el siguiente. Ejemplo: primero generar ideas, luego seleccionar las mejores, después desarrollar la idea ganadora.</p>
+                        <h4>Aprendizaje Few-Shot</h4>
+                        <p>Ejemplos previos a la solicitud</p>
                     </div>
                     <div class="step-item">
-                        <h4>Prompts con ejemplos (few-shot learning)</h4>
-                        <p>Proporciona 2-3 ejemplos del tipo de respuesta que deseas antes de hacer tu pregunta principal. Ejemplo: "Aquí hay ejemplos de código limpio en Python: [ejemplos]. Ahora, refactoriza este código siguiendo los mismos principios: [tu código]".</p>
-                    </div>
-                    <div class="step-item">
-                        <h4>Técnica de contraste</h4>
-                        <p>Pide a la IA comparar alternativas: "Compara los paradigmas funcional y orientado a objetos para resolver este problema específico, y recomienda cuál usar en este caso."</p>
+                        <h4>Análisis Comparativo</h4>
+                        <p>Comparación de diferentes enfoques</p>
                     </div>
                 </div>
-                
                 <div class="level-tips">
-                    <h4>Consejos avanzados:</h4>
-                    <div class="tip-item">
-                        <p class="tip-title">Meta-prompts</p>
-                        <p>Pide a la IA que te ayude a mejorar tus propios prompts: "¿Cómo puedo mejorar este prompt para obtener una respuesta más detallada?"</p>
-                    </div>
-                    <div class="tip-item">
-                        <p class="tip-title">Retroalimentación iterativa</p>
-                        <p>Proporciona feedback específico sobre las respuestas: "Esta respuesta es útil, pero necesito más detalles sobre el punto X. También, ¿podrías explicar Y con un ejemplo concreto?"</p>
-                    </div>
-                    <div class="tip-item">
-                        <p class="tip-title">Control de formato</p>
-                        <p>Especifica formatos exactos: "Responde usando formato Markdown con encabezados H2 para secciones principales, listas numeradas para pasos, y bloques de código para ejemplos."</p>
-                    </div>
-                    <div class="tip-item">
-                        <p class="tip-title">Asignación de pesos</p>
-                        <p>Indica la importancia relativa: "Analiza este artículo dando más peso a los aspectos técnicos (70%) que a los aspectos de diseño (30%)"</p>
+                    <h4>Técnicas Avanzadas</h4>
+                    <div class="step-item">
+                        <p><strong>Meta-Prompts:</strong> Optimización automática</p>
+                        <p><strong>Control de Formatos:</strong> Estructuras específicas</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <h2 class="section-title" id="ias">IAs más Importantes</h2>
-    
+    <h2 class="section-title" id="ias">IAs Destacadas</h2>
     <div class="cards-container">
+        <!-- ChatGPT -->
         <div class="card">
-            <span class="price-tag price-paid">De pago / Gratuito</span>
-            <h3>
-                <svg class="card-icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                </svg>
-                ChatGPT</h3>
-            <p>La IA conversacional más popular del mundo, capaz de comprender y generar texto de forma natural.</p>
+            <span class="price-tag price-paid">Premium</span>
+            <h3>ChatGPT</h3>
+            <p>Asistente conversacional multimodal de OpenAI</p>
             <ul class="card-list">
-                <li>Escritura creativa y técnica</li>
-                <li>Programación en múltiples lenguajes</li>
-                <li>Análisis y traducción de textos</li>
-                <li>Versiones: GPT-3.5 (gratuita) y GPT-4 (Plus)</li>
-                <li>Integración con plugins y navegación web</li>
+                <li>GPT-4 y navegación web</li>
+                <li>Análisis de datos avanzado</li>
+                <li>Creación de contenido</li>
+                <li>Traducciones contextuales</li>
+                <li>Plugins exclusivos</li>
             </ul>
-            <a href="https://chat.openai.com" class="button">
-                Acceder
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+            <a href="https://chat.openai.com" class="button">Acceder</a>
         </div>
 
+        <!-- Claude -->
         <div class="card">
-            <span class="price-tag price-paid">De pago / Gratuito</span>
-            <h3>
-                <svg class="card-icon" viewBox="0 0 24 24">
-                    <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v2H5zm0-8h14v2H5zm0 4h14v2H5z"/>
-                </svg>
-                Claude</h3>
-            <p>IA especializada en análisis profundo y razonamiento avanzado</p>
+            <span class="price-tag price-paid">Pro</span>
+            <h3>Claude</h3>
+            <p>Análisis de documentos y razonamiento complejo</p>
             <ul class="card-list">
-                <li>Análisis detallado de documentos largos</li>
-                <li>Escritura académica y técnica</li>
-                <li>Razonamiento y explicaciones detalladas</li>
-                <li>Capacidad de procesamiento de imágenes</li>
-                <li>Versiones: Claude 2 y Claude 3</li>
+                <li>Procesamiento de archivos</li>
+                <li>Comparación de documentos</li>
+                <li>Resúmenes ejecutivos</li>
+                <li>Análisis de imágenes</li>
+                <li>Codificación asistida</li>
             </ul>
-            <a href="https://claude.ai" class="button">
-                Acceder
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+            <a href="https://claude.ai" class="button">Acceder</a>
         </div>
 
+        <!-- Gemini -->
         <div class="card">
-            <span class="price-tag price-free">Gratuito</span>
-            <h3>
-                <svg class="card-icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/>
-                </svg>
-                Gemini</h3>
-            <p>La IA multimodal de Google con capacidades avanzadas</p>
+            <span class="price-tag price-free">Gratis</span>
+            <h3>Gemini</h3>
+            <p>IA multimodal de Google con Workspace</p>
             <ul class="card-list">
-                <li>Análisis de texto e imágenes</li>
-                <li>Integración con suite de Google</li>
-                <li>Acceso a información actualizada</li>
-                <li>Versiones: Gemini y Gemini Advanced</li>
-                <li>API disponible para desarrolladores</li>
+                <li>Búsquedas en tiempo real</li>
+                <li>Análisis en Sheets</li>
+                <li>Presentaciones en Slides</li>
+                <li>Gestión de Gmail</li>
+                <li>Asistencia en Docs</li>
             </ul>
-            <a href="https://gemini.google.com" class="button">
-                Acceder
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+            <a href="https://gemini.google.com" class="button">Acceder</a>
         </div>
 
+        <!-- DALL-E 3 -->
         <div class="card">
-            <span class="price-tag price-paid">De pago</span>
-            <h3>
-                <svg class="card-icon" viewBox="0 0 24 24">
-                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                </svg>
-                DALL-E 3</h3>
-            <p>El generador de imágenes más avanzado de OpenAI</p>
+            <span class="price-tag price-paid">Premium</span>
+            <h3>DALL-E 3</h3>
+            <p>Generador de imágenes por texto</p>
             <ul class="card-list">
-                <li>Generación de imágenes ultra realistas</li>
-                <li>Edición y variación de imágenes</li>
-                <li>Integrado con ChatGPT</li>
-                <li>Resolución hasta 1024x1024</li>
-                <li>Control preciso sobre estilos</li>
+                <li>Resolución 1024x1024</li>
+                <li>Estilos personalizables</li>
+                <li>Edición contextual</li>
+                <li>Integración ChatGPT</li>
+                <li>Generación en lotes</li>
             </ul>
-            <a href="https://openai.com/dall-e-3" class="button">
-                Acceder
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+            <a href="https://openai.com/dall-e-3" class="button">Acceder</a>
+        </div>
+
+        <!-- Midjourney -->
+        <div class="card">
+            <span class="price-tag price-paid">Premium</span>
+            <h3>Midjourney</h3>
+            <p>Generador de arte digital</p>
+            <ul class="card-list">
+                <li>Modelos v5/v6</li>
+                <li>Resolución 2048px</li>
+                <li>Estilos artísticos</li>
+                <li>Modo turbo</li>
+                <li>Comunidad activa</li>
+            </ul>
+            <a href="https://midjourney.com" class="button">Acceder</a>
+        </div>
+
+        <!-- GitHub Copilot -->
+        <div class="card">
+            <span class="price-tag price-paid">Empresa</span>
+            <h3>GitHub Copilot</h3>
+            <p>Asistente de codificación</p>
+            <ul class="card-list">
+                <li>30+ lenguajes</li>
+                <li>Autocompletado contextual</li>
+                <li>Detección de errores</li>
+                <li>Conversación natural</li>
+                <li>Integración VS Code</li>
+            </ul>
+            <a href="https://github.com/features/copilot" class="button">Acceder</a>
+        </div>
+
+        <!-- CodeWhisperer -->
+        <div class="card">
+            <span class="price-tag price-free">Gratis</span>
+            <h3>CodeWhisperer</h3>
+            <p>Asistente AWS para desarrollo</p>
+            <ul class="card-list">
+                <li>Seguridad integrada</li>
+                <li>Optimización cloud</li>
+                <li>Soporte AWS SDK</li>
+                <li>Auditoría de código</li>
+                <li>JetBrains</li>
+            </ul>
+            <a href="https://aws.amazon.com/codewhisperer" class="button">Acceder</a>
+        </div>
+
+        <!-- IBM Watson -->
+        <div class="card">
+            <span class="price-tag price-paid">Empresa</span>
+            <h3>IBM Watson</h3>
+            <p>IA empresarial</p>
+            <ul class="card-list">
+                <li>NLP avanzado</li>
+                <li>Automatización RPA</li>
+                <li>Análisis predictivo</li>
+                <li>Integración SAP</li>
+                <li>Chatbots corporativos</li>
+            </ul>
+            <a href="https://www.ibm.com/watson" class="button">Acceder</a>
+        </div>
+
+        <!-- Microsoft Copilot -->
+        <div class="card">
+            <span class="price-tag price-paid">365</span>
+            <h3>MS Copilot</h3>
+            <p>Productividad en Office</p>
+            <ul class="card-list">
+                <li>Generación documentos</li>
+                <li>Análisis en Excel</li>
+                <li>Gestión de emails</li>
+                <li>Automatización flujos</li>
+                <li>Resúmenes reuniones</li>
+            </ul>
+            <a href="https://copilot.microsoft.com" class="button">Acceder</a>
+        </div>
+
+        <!-- Stable Diffusion -->
+        <div class="card">
+            <span class="price-tag price-free">Open Source</span>
+            <h3>Stable Diffusion</h3>
+            <p>Generador de código abierto</p>
+            <ul class="card-list">
+                <li>Modelos personalizados</li>
+                <li>Control total</li>
+                <li>Ejecución local/cloud</li>
+                <li>Comunidad activa</li>
+                <li>Versión XL</li>
+            </ul>
+            <a href="https://stability.ai" class="button">Acceder</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Pedro Miguel Morales Calderin</p>
+        <p>Proyecto académico - 2º ASIR</p>
+        <p>Desarrollo de aplicaciones multiplataforma</p>
+    </div>
+</body>
+</html>
