@@ -16,6 +16,9 @@
             --success-color: #28a745;
             --warning-color: #ffc107;
             --info-color: #17a2b8;
+            --beginner-color: #4CAF50;
+            --intermediate-color: #FFC107;
+            --advanced-color: #F44336;
         }
 
         * {
@@ -387,6 +390,98 @@
             margin-bottom: 10px;
         }
 
+        /* Nuevos estilos para niveles */
+        .level-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .level-intermediate {
+            background-color: var(--intermediate-color);
+        }
+
+        .level-advanced {
+            background-color: var(--advanced-color);
+        }
+
+        .level-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .level-card-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .level-steps {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .level-tips {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(6, 204, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .step-item {
+            margin-bottom: 16px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .step-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .step-item:nth-child(1):before { content: '1'; }
+        .step-item:nth-child(2):before { content: '2'; }
+        .step-item:nth-child(3):before { content: '3'; }
+        .step-item:nth-child(4):before { content: '4'; }
+        .step-item:nth-child(5):before { content: '5'; }
+
+        .tip-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -435,6 +530,10 @@
             .nav-content {
                 justify-content: center;
             }
+
+            .level-card-content {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -444,6 +543,7 @@
             <div class="nav-links">
                 <a href="#inicio">Inicio</a>
                 <a href="#introduccion">Introducción</a>
+                <a href="#niveles">Niveles de Uso</a>
                 <a href="#ias">IAs</a>
                 <a href="#comparativa">Comparativa</a>
                 <a href="#recursos">Recursos</a>
@@ -463,8 +563,98 @@
 
     <section class="intro-section" id="introduccion">
         <p>La Inteligencia Artificial está transformando la manera en que trabajamos, creamos y nos comunicamos. Esta guía te ayudará a entender las principales herramientas de IA disponibles actualmente y cómo puedes aprovecharlas en tu día a día.</p>
-        <p>Desde asistentes conversacionales hasta generadores de imágenes, descubre las capacidades y limitaciones de cada herramienta.</p>
+        <p>Desde asistentes conversacionales hasta generadores de imágenes, descubre las capacidades y limitaciones de cada herramienta según tu nivel de experiencia.</p>
     </section>
+
+    <h2 class="section-title" id="niveles">Niveles de Uso de IA</h2>
+    
+    <div class="resources-section">
+        <!-- Nivel Intermedio -->
+        <div class="level-card">
+            <span class="level-badge level-intermediate">Nivel Intermedio</span>
+            <h3>Optimizando tus prompts</h3>
+            
+            <div class="level-card-content">
+                <div class="level-steps">
+                    <div class="step-item">
+                        <h4>Estructura tus preguntas</h4>
+                        <p>Utiliza un formato claro: contexto + instrucción + objetivo específico. Por ejemplo: "Contexto: Soy un programador principiante. Instrucción: Explícame paso a paso cómo crear una API REST. Objetivo: Quiero entender los conceptos básicos para implementarla en Python."</p>
+                    </div>
+                    <div class="step-item">
+                        <h4>Sé específico con detalles</h4>
+                        <p>Añade parámetros como longitud, tono, formato y audiencia. Por ejemplo: "Escribe un email de 150 palabras en tono profesional para un cliente importante, explicando un retraso en la entrega."</p>
+                    </div>
+                    <div class="step-item">
+                        <h4>Solicita iteraciones</h4>
+                        <p>Pide a la IA que refine sus respuestas. Por ejemplo: "Analiza este código, luego optimízalo para rendimiento, y finalmente explica los cambios que has hecho."</p>
+                    </div>
+                </div>
+                
+                <div class="level-tips">
+                    <h4>Consejos clave:</h4>
+                    <div class="tip-item">
+                        <p class="tip-title">Usa términos de rol</p>
+                        <p>Pide a la IA que adopte un rol específico: "Actúa como un experto en SEO y analiza esta página web..."</p>
+                    </div>
+                    <div class="tip-item">
+                        <p class="tip-title">Evita ambigüedades</p>
+                        <p>En lugar de preguntar "¿Qué opinas de JavaScript?", pregunta "¿Cuáles son las ventajas y desventajas de JavaScript para desarrollo web en 2024?"</p>
+                    </div>
+                    <div class="tip-item">
+                        <p class="tip-title">Limita el contexto</p>
+                        <p>Proporciona solo la información relevante para obtener respuestas más precisas y evitar confusiones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nivel Avanzado -->
+        <div class="level-card">
+            <span class="level-badge level-advanced">Nivel Avanzado</span>
+            <h3>Ingeniería de prompts para resultados profesionales</h3>
+            
+            <div class="level-card-content">
+                <div class="level-steps">
+                    <div class="step-item">
+                        <h4>Técnica de pensamiento paso a paso</h4>
+                        <p>Pide a la IA: "Piénsalo paso a paso" o "Analiza este problema descomponiéndolo en partes más pequeñas". Funciona especialmente bien para problemas complejos de matemáticas, lógica o programación.</p>
+                    </div>
+                    <div class="step-item">
+                        <h4>Encadenamiento de prompts</h4>
+                        <p>Divide tareas complejas en una serie de prompts secuenciales, usando la salida de cada uno como entrada para el siguiente. Ejemplo: primero generar ideas, luego seleccionar las mejores, después desarrollar la idea ganadora.</p>
+                    </div>
+                    <div class="step-item">
+                        <h4>Prompts con ejemplos (few-shot learning)</h4>
+                        <p>Proporciona 2-3 ejemplos del tipo de respuesta que deseas antes de hacer tu pregunta principal. Ejemplo: "Aquí hay ejemplos de código limpio en Python: [ejemplos]. Ahora, refactoriza este código siguiendo los mismos principios: [tu código]".</p>
+                    </div>
+                    <div class="step-item">
+                        <h4>Técnica de contraste</h4>
+                        <p>Pide a la IA comparar alternativas: "Compara los paradigmas funcional y orientado a objetos para resolver este problema específico, y recomienda cuál usar en este caso."</p>
+                    </div>
+                </div>
+                
+                <div class="level-tips">
+                    <h4>Consejos avanzados:</h4>
+                    <div class="tip-item">
+                        <p class="tip-title">Meta-prompts</p>
+                        <p>Pide a la IA que te ayude a mejorar tus propios prompts: "¿Cómo puedo mejorar este prompt para obtener una respuesta más detallada?"</p>
+                    </div>
+                    <div class="tip-item">
+                        <p class="tip-title">Retroalimentación iterativa</p>
+                        <p>Proporciona feedback específico sobre las respuestas: "Esta respuesta es útil, pero necesito más detalles sobre el punto X. También, ¿podrías explicar Y con un ejemplo concreto?"</p>
+                    </div>
+                    <div class="tip-item">
+                        <p class="tip-title">Control de formato</p>
+                        <p>Especifica formatos exactos: "Responde usando formato Markdown con encabezados H2 para secciones principales, listas numeradas para pasos, y bloques de código para ejemplos."</p>
+                    </div>
+                    <div class="tip-item">
+                        <p class="tip-title">Asignación de pesos</p>
+                        <p>Indica la importancia relativa: "Analiza este artículo dando más peso a los aspectos técnicos (70%) que a los aspectos de diseño (30%)"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <h2 class="section-title" id="ias">IAs más Importantes</h2>
     
@@ -559,134 +749,3 @@
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
-        </div>
-
-        <div class="card">
-            <span class="price-tag price-paid">De pago</span>
-            <h3>
-                <svg class="card-icon" viewBox="0 0 24 24">
-                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8zm-5 8l5-3 5 3-5 3-5-3z"/>
-                </svg>
-                Midjourney</h3>
-            <p>Generador de arte digital con resultados únicos</p>
-            <ul class="card-list">
-                <li>Estilos artísticos únicos</li>
-                <li>Alta calidad y detalle</li>
-                <li>Comunidad activa de artistas</li>
-                <li>Integración con Discord</li>
-                <li>Versión 6 con mejoras significativas</li>
-            </ul>
-            <a href="https://www.midjourney.com" class="button">
-                Acceder
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-
-        <div class="card">
-            <span class="price-tag price-free">Código Abierto</span>
-            <h3>
-                <svg class="card-icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                </svg>
-                Stable Diffusion</h3>
-            <p>La alternativa de código abierto más potente</p>
-            <ul class="card-list">
-                <li>Completamente personalizable</li>
-                <li>Modelos especializados</li>
-                <li>Comunidad activa de desarrollo</li>
-                <li>Instalación local posible</li>
-                <li>Integración con otras herramientas</li>
-            </ul>
-            <a href="https://stability.ai" class="button">
-                Acceder
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-    </div>
-
-    <h2 class="section-title" id="comparativa">Comparativa de IAs</h2>
-    
-    <div class="comparison-table">
-        <table>
-            <thead>
-                <tr>
-                    <th>IA</th>
-                    <th>Puntos Fuertes</th>
-                    <th>Limitaciones</th>
-                    <th>Precio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ChatGPT</td>
-                    <td>Versatilidad, facilidad de uso, gran comunidad</td>
-                    <td>Conocimiento limitado a 2023, puede alucinar</td>
-                    <td>Gratuito / €20 mes (Plus)</td>
-                </tr>
-                <tr>
-                    <td>Claude</td>
-                    <td>La mejor IA creado condigo de diversos Lenguajes</td>
-                    <td>Análisis profundo, documentos largos</td>
-                    <td>Gratuito / Premium</td>
-                </tr>
-                <tr>
-                    <td>Gemini</td>
-                    <td>Integración Google, multimodal</td>
-                    <td>Menor capacidad de razonamiento</td>
-                    <td>Gratuito / €10 mes</td>
-                </tr>
-                <tr>
-                    <td>DALL-E 3</td>
-                    <td>Calidad fotorrealista, precisión</td>
-                    <td>Alto costo por imagen</td>
-                    <td>Créditos / Suscripción</td>
-                </tr>
-                <tr>
-                    <td>Midjourney</td>
-                    <td>Calidad artística, estilos únicos</td>
-                    <td>Solo Discord, curva aprendizaje</td>
-                    <td>€10-30 mes</td>
-                </tr>
-                <tr>
-                    <td>Stable Diffusion</td>
-                    <td>Personalizable, código abierto</td>
-                    <td>Requiere conocimientos técnicos</td>
-                    <td>Gratuito</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h2 class="section-title" id="recursos">Recursos Adicionales</h2>
-
-    <div class="resources-section">
-        <div class="resources-grid">
-            <div class="resource-card">
-                <h4>Tutoriales</h4>
-                <p>Guías paso a paso para dominar cada herramienta</p>
-            </div>
-            <div class="resource-card">
-                <h4>Prompts Efectivos</h4>
-                <p>Ejemplos y técnicas para mejorar tus resultados</p>
-            </div>
-            <div class="resource-card">
-                <h4>Casos de Uso</h4>
-                <p>Ejemplos prácticos en diferentes campos</p>
-            </div>
-            <div class="resource-card">
-                <h4>Actualizaciones</h4>
-                <p>Últimas novedades en el mundo de la IA</p>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>Desarrollado por Pedro Miguel Morales Calderin</p>
-        <p>2º ASIR - 2024</p>
-    </footer>
-</body>
-</html>
